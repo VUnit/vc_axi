@@ -7,18 +7,14 @@
 from os.path import join, dirname
 from vunit import VUnit
 
-root = dirname(__file__)
+ui = VUnit.from_argv()
+ui.add_osvvm()
+ui.add_verification_components()
 
-vu = VUnit.from_argv()
+src_path = join(dirname(__file__), "src")
 
-vu.add_osvvm()
-vu.add_array_util()
-vu.add_verification_components()
+axi_dma_lib = ui.add_library("axi_dma_lib")
+axi_dma_lib.add_source_files(join(src_path, "*.vhd"))
+axi_dma_lib.add_source_files(join(src_path, "test", "*.vhd"))
 
-lib = vu.add_library("lib")
-lib.add_source_files(join(root, "src/*.vhd"))
-lib.add_source_files(join(root, "src/**/*.vhd"))
-
-# vu.set_sim_option('modelsim.init_files.after_load',['runall_addwave.do'])
-
-vu.main()
+ui.main()
