@@ -8,8 +8,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 context work.vunit_context;
-context work.vc_context;
-use work.axi_pkg.all;
+context work.vc_axi_context;
 use work.axi_slave_private_pkg.all;
 
 entity tb_axi_slave_private_pkg is

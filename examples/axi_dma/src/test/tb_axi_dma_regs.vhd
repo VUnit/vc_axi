@@ -9,7 +9,7 @@ use ieee.std_logic_1164.all;
 
 library vunit_lib;
 context vunit_lib.vunit_context;
-context vunit_lib.vc_context;
+context vunit_lib.vc_axi_context;
 use vunit_lib.signal_checker_pkg.all;
 
 use work.axil_pkg.all;

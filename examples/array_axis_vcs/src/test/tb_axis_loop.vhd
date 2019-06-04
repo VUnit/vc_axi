@@ -16,7 +16,7 @@ context ieee.ieee_std_context;
 
 library vunit_lib;
 context vunit_lib.vunit_context;
-context vunit_lib.vc_context;
+context vunit_lib.vc_axi_context;
 use vunit_lib.array_pkg.all;
 
 entity tb_axis_loop is

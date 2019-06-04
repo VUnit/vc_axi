@@ -12,7 +12,7 @@ use work.axi_pkg.all;
 use work.axi_slave_private_pkg.all;
 use work.queue_pkg.all;
 context work.com_context;
-context work.vc_context;
+context work.vc_axi_context;
 
 entity axi_read_slave is
   generic (

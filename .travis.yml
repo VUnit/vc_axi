@@ -1,0 +1,15 @@
+services: docker
+language: minimal
+install: skip
+script:
+  - git clone -b distribute-axi-uart --recurse-submodules https://github.com/1138-4EB/vunit /tmp/vunit
+  - docker run --rm -tv /tmp/vunit:/tmp/vunit -e PYTHONPATH=/tmp/vunit -v $(pwd):/src -w /src vunit/dev:$DOCKER_IMAGE tox -e $BUILD_NAME
+
+matrix:
+  include:
+  - env:
+      - BUILD_NAME=py37-acceptance-ghdl
+      - DOCKER_IMAGE=mcode
+  - env:
+      - BUILD_NAME=py37-examples-ghdl
+      - DOCKER_IMAGE=llvm

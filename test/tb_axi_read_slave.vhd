@@ -10,9 +10,7 @@ use ieee.numeric_std.all;
 
 context work.vunit_context;
 context work.com_context;
-context work.vc_context;
-
-use work.axi_pkg.all;
+context work.vc_axi_context;
 use work.integer_vector_ptr_pkg.all;
 use work.random_pkg.all;
 

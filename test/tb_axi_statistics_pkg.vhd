@@ -6,9 +6,8 @@
 
 -- vunit: run_all_in_same_sim
 
-use work.axi_pkg.all;
 context work.vunit_context;
-context work.vc_context;
+context work.vc_axi_context;
 
 entity tb_axi_statistics_pkg is
   generic (runner_cfg : string);

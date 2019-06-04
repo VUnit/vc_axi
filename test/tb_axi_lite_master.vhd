@@ -8,10 +8,8 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-library vunit_lib;
-context vunit_lib.vunit_context;
+context work.vunit_context;
 context work.com_context;
-
 use work.axi_pkg.all;
 use work.bus_master_pkg.all;
 use work.axi_lite_master_pkg.all;
