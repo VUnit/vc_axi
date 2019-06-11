@@ -1,0 +1,16 @@
+{
+  "name": "AXI",
+  "lib": "vunit_lib",
+  "provides": [
+    "Lite Master",
+    "Read Slave",
+    "Write Slave",
+    "Stream Master",
+    "Stream Monitor",
+    "Stream Protocol Checker",
+    "Stream Slave"
+  ],
+  "depends": {
+    "VUnit": " distribute-axi-uart"
+  }
+}
