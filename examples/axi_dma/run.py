@@ -4,17 +4,22 @@
 #
 # Copyright (c) 2014-2019, Lars Asplund lars.anders.asplund@gmail.com
 
-from os.path import join, dirname
+from os.path import join, dirname, abspath
 from vunit import VUnit
 
-ui = VUnit.from_argv()
-ui.add_osvvm()
-ui.add_verification_components()
 
 root = dirname(__file__)
 src_path = join(root, "src")
 
-ui.library("vunit_lib").add_source_files(join(root, '..', '..', 'src', '*.vhd'))
+ui = VUnit.from_argv()
+
+ui.add_osvvm()
+ui.use_verification_components(
+    ui.add_verification_components(
+        abspath(join(root, '..', '..', '..'))
+    ),
+    ['AXI']
+)
 
 ui.add_library("axi_dma_lib").add_source_files([
     join(src_path, "*.vhd"),

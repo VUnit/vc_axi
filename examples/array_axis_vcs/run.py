@@ -4,8 +4,9 @@
 #
 # Copyright (c) 2014-2019, Lars Asplund lars.anders.asplund@gmail.com
 
-from os.path import join, dirname
+from os.path import join, dirname, abspath
 from vunit import VUnit
+
 
 root = dirname(__file__)
 
@@ -13,9 +14,12 @@ vu = VUnit.from_argv()
 
 vu.add_osvvm()
 vu.add_array_util()
-vu.add_verification_components()
-
-vu.library("vunit_lib").add_source_files(join(root, '..', '..', 'src', '*.vhd'))
+vu.use_verification_components(
+    vu.add_verification_components(
+        abspath(join(root, '..', '..', '..'))
+    ),
+    ['AXI']
+)
 
 vu.add_library("lib").add_source_files([
     join(root, "src/*.vhd"),
