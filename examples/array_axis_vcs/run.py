@@ -18,22 +18,17 @@ in subsection :ref:`Stream <stream_vci>` and in
 :vunit_file:`vhdl/verification_components/test/tb_axi_stream.vhd <vunit/vhdl/verification_components/test/tb_axi_stream.vhd>`.
 """
 
-from os.path import join, dirname, abspath
+from os.path import join, dirname
 from vunit import VUnit
-
 
 root = dirname(__file__)
 
 vu = VUnit.from_argv()
-
 vu.add_osvvm()
 vu.add_array_util()
-vu.use_verification_components(
-    vu.add_verification_components(
-        abspath(join(root, '..', '..', '..'))
-    ),
-    ['AXI']
-)
+vu.add_verification_components()
+
+vu.library("vunit_lib").add_source_files(join(root, '..', '..', 'src', '*.vhd'))
 
 vu.add_library("lib").add_source_files([
     join(root, "src/*.vhd"),
